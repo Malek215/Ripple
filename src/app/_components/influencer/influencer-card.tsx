@@ -26,7 +26,7 @@ const InfluencerCard: React.FC<InfluencerCardProps> = ({ influencer }) => {
       <div className="flex flex-row text-center ">
         <div className="mr-6 ">
           <img
-            src={influencer.avatar.replace("-sign-va",'')}
+            src={influencer.avatar.replace("-sign",'')}
             alt="Influencer"
             className="size-24 rounded-full  "
             width={60}

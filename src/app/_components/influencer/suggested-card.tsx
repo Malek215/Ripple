@@ -24,8 +24,8 @@ const SuggestedCard: FC<InfluencerCardProps> = ({ influencer }) => {
           )}
         </div>
         <div className="influencer-pic">
-          <Image
-            src={influencer.avatar.replace("-sign-va", "")}
+          <img
+            src={influencer.avatar.replace("-sign",'')}
             alt="Influencer"
             className="influencer-pic ml-20 size-20 rounded-full "
             width={50}
