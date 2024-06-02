@@ -22,20 +22,20 @@ const InfluencerCard: React.FC<InfluencerCardProps> = ({ influencer }) => {
   }, []);
 
   return (
-<div className="container m-auto w-fit rounded-2xl border-2 p-6 bg-white">
-      <div className="influencer-info flex flex-row text-center ">
-        <div className=" influencer-pic mr-6 ">
-          <Image
+<div className="m-auto w-fit rounded-2xl border-2 p-6 bg-white">
+      <div className="flex flex-row text-center ">
+        <div className="mr-6 ">
+          <img
             src={influencer.avatar.replace("-sign-va",'')}
             alt="Influencer"
-            className="influencer-pic size-24 rounded-full  "
+            className="size-24 rounded-full  "
             width={60}
             height={60}
           />
-          <FaCheckCircle className="check-icon absolute	 ml-[70px] mt-[-24px] size-7	rounded-full  border-2 bg-white text-sky-500" />
+          <FaCheckCircle className="absolute ml-[70px] mt-[-24px] size-7	rounded-full  border-2 bg-white text-sky-500" />
         </div>
 
-        <div className="header mt-2">
+        <div className="mt-2">
          <div className="float-right text-4xl">
             {influencer.platform === "tiktok" && (
               <Image src='/tiktok1.png' width={40} height={40} alt='insta' />
@@ -55,15 +55,15 @@ const InfluencerCard: React.FC<InfluencerCardProps> = ({ influencer }) => {
           </div>
           <div className="stats m-4 flex w-9/12 justify-between font-bold">
             <div className="flex gap-1">
-              <h3> {formatFollowersNumber(influencer.stats.followerCount)}</h3>
+              <h3> {formatFollowersNumber(influencer.stats?.followerCount ?? "unknown")}</h3>
               <p className="font-extralight text-neutral-400	">Followers</p>
             </div>
             <div className="flex gap-1">
-              <h3>{formatFollowersNumber(influencer.stats.followingCount)}</h3>
+              <h3>{formatFollowersNumber(influencer.stats?.followingCount ?? "unknown")}</h3>
               <p className="font-extralight text-neutral-400	">Following</p>
             </div>
             <div className="flex gap-1">
-              <h3>{formatFollowersNumber(influencer.stats.postsCount)}</h3>
+              <h3>{formatFollowersNumber(influencer.stats?.postsCount ?? "unknown")}</h3>
               <p className="font-extralight text-neutral-400	">Posts</p>
             </div>
           </div>
@@ -71,11 +71,11 @@ const InfluencerCard: React.FC<InfluencerCardProps> = ({ influencer }) => {
         </div>
       </div>
       {influencer.categories && (
-        <div className="categories mt-10 flex gap-4">
+        <div className="mt-10 flex gap-4">
           {influencer.categories.map((category, index) => (
             <div
               key={index}
-              className="category w-32 rounded-2xl border-2 text-center font-semibold"
+              className="w-32 rounded-2xl border-2 text-center font-semibold"
             >
               {category}
               <p className="font-extralight text-neutral-400">20%</p>
