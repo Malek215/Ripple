@@ -15,9 +15,6 @@ export default async function Page({ params }: { params: { id: string } }) {
   const similar = await api.influencer.getSimilarInfluencers(params.id);
   const ids = similar.map((influencer: SimilarInfluencer) => influencer.id);
   const suggestedInfluencers = await api.influencer.getByIds(ids);
-  setTimeout(() => {
-    console.log(suggestedInfluencers);
-  }, 1000);
   if (!influencer) {
     return (<Error error="Influencer not found" />)
   }
